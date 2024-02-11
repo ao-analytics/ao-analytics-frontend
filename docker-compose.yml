@@ -1,9 +1,11 @@
 services:
-  aodata-frontend:
-    container_name: aodata-frontend
+  ao-analytics-frontend:
+    container_name: ao-analytics-frontend
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - 8000:80
     restart: unless-stopped
+    depends_on:
+      - ao-analytics-api
