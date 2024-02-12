@@ -18,10 +18,10 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.TOKEN }}
       -
         name: Build and push
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ao-analytics/ao-analytics-frontend:latest 
+          tags: ao-analytics/ao-analytics-frontend:latest
