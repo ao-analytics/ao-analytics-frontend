@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { PUBLIC_BACKEND_URL as BACKEND_URL } from "$env/static/public";
 	import { narrow_relative_time_formatter } from '$lib/utils/formatters';
 	import { standard_number_formatter } from '$lib/utils/formatters';
 	import type { Location, MarketOrder } from '$lib/types';
@@ -37,7 +38,7 @@
 
     const get_locations = async () => {
 		const res = await fetch(
-			`https://veqox.dedyn.io/api/locations?min_market_orders=1`,
+			`${BACKEND_URL}/locations?min_market_orders=1`,
 		);
 		const json = await res.json();
 		return json;
@@ -50,7 +51,7 @@
 		let from_string = yesterday.toISOString().split('T')[0];
 
         let request_url = 
-            `https://veqox.dedyn.io/api/orders` +
+            `${BACKEND_URL}/orders` +
             `?item_name=${filters.name}` +
             `&auction_type=offer` +
             `&limit=${page_size}` +

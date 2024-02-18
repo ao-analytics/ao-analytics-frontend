@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { PUBLIC_BACKEND_URL as BACKEND_URL } from "$env/static/public";
 	import type { MarketOrderCountByAuctionType } from "$lib/types";
 	import { onMount } from "svelte";
     import { compact_number_formatter, standard_number_formatter } from '$lib/utils/formatters';
@@ -7,7 +8,7 @@
 
     const get_data = async () => {
         let response = await fetch(
-            `https://veqox.dedyn.io/api/statistics/orders/count?auction_type=request`,
+            `${BACKEND_URL}/statistics/orders/count?auction_type=request`,
         );
 
         return response.json();

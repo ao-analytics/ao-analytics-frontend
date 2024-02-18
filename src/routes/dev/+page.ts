@@ -4,13 +4,13 @@ import type { PageLoad } from "./$types";
 export const load: PageLoad = async ({ fetch }) => {
   /*
   let market_order_count_request_response = await fetch(
-    `https://veqox.dedyn.io/api/statistics/orders/count?auction_type=request`,
+    `${BACKEND_URL}/statistics/orders/count?auction_type=request`,
   );
   let market_order_count_offer_response = await fetch(
-    `https://veqox.dedyn.io/api/statistics/orders/count?auction_type=offer`,
+    `${BACKEND_URL}/statistics/orders/count?auction_type=offer`,
   );
   let market_order_count_response = await fetch(
-    `https://veqox.dedyn.io/api/statistics/orders/count`,
+    `${BACKEND_URL}/statistics/orders/count`,
   );
 
   let market_order_count =
