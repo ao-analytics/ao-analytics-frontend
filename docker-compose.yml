@@ -7,5 +7,3 @@ services:
     ports:
       - 8000:80
     restart: unless-stopped
-    depends_on:
-      - ao-analytics-api
