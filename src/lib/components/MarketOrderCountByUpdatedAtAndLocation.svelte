@@ -27,7 +27,7 @@
 		];
 
 		let labels = new Array(...new Set(data.map((d) => d.location)));
-		let dates = new Array(...new Set(data.map((d) => d.updated_at)));
+		let dates = new Array(...new Set(data.map((d) => d.date)));
 
 		let datasets: {
 			label: string;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PageData } from "../$types";
+	import type { PageData } from "./$types";
 	import { writable } from "svelte/store";
 	import { PUBLIC_BACKEND_URL as BACKEND_URL } from "$env/static/public";
 	import { narrow_relative_time_formatter } from "$lib/utils/formatters";
@@ -98,6 +98,8 @@
 
         if ($filters.enchantment)
             requestURL.searchParams.set("enchantment_level", $filters.enchantment.toString());
+		if ($filters.tier)
+			requestURL.searchParams.set("tier", $filters.tier.toString());
         if ($filters.quality)
             requestURL.searchParams.set("quality_level", $filters.quality.toString());
         if ($filters.location)

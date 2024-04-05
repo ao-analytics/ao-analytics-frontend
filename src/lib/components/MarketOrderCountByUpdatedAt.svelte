@@ -18,7 +18,7 @@
 		new Chart(canvas, {
 			type: "line",
 			data: {
-				labels: data.map((d) => d.updated_at),
+				labels: data.map((d) => d.date),
 				datasets: [
 					{
 						data: data.map((d) => d.count),
