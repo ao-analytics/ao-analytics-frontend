@@ -1,20 +1,14 @@
 <script lang="ts">
-	import { PUBLIC_BACKEND_URL as BACKEND_URL } from "$env/static/public";
 	import type { MarketOrderCountByUpdatedAtAndLocation } from "$lib/types";
 	import { Chart } from "chart.js/auto";
 	import "chartjs-adapter-date-fns";
 	import { onMount } from "svelte";
 
-	let data: MarketOrderCountByUpdatedAtAndLocation[];
+	export let data: MarketOrderCountByUpdatedAtAndLocation[];
 	export let minAmount: number;
 	let canvas: HTMLCanvasElement;
 
 	onMount(async () => {
-		let response = await fetch(
-			`${BACKEND_URL}/statistics/orders?group_by=updated_at, location`,
-		);
-		data = await response.json();
-
 		let colors = [
 			"#7480ff",
 			"#6873e5",
@@ -107,8 +101,9 @@
 	});
 </script>
 
-
-<div class="stat-title">Market Orders By Last Update</div>
+<div class="shadow stat">
+	<div class="stat-title">Market Orders By Last Update</div>
 <div class="stat-value">
 	<canvas bind:this={canvas}></canvas>
+</div>
 </div>
