@@ -3,7 +3,6 @@ import type { MarketOrderCount, MarketOrderCountByAuctionType, MarketOrderCountB
 import type { PageLoad } from "./$types";
 
 export const load: PageLoad = async ({ fetch }) => {
-
   try {
     let requests = await Promise.all([
       fetch(`${PUBLIC_BACKEND_URL}/statistics/orders/count`),
