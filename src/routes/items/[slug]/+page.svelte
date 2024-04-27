@@ -15,7 +15,7 @@
 
 	onMount(async () => {
 		let response = await fetch(
-			`${BACKEND_URL}/statistics/items/${$page.params.slug}?group_by=updated_at`,
+			`${BACKEND_URL}/statistics/items/${$page.params.slug}?group_by=hour`,
 		);
 		data = await response.json();
 

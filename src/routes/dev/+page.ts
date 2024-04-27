@@ -8,8 +8,8 @@ export const load: PageLoad = async ({ fetch }) => {
       fetch(`${PUBLIC_BACKEND_URL}/statistics/orders/count`),
       fetch(`${PUBLIC_BACKEND_URL}/statistics/orders/count?auction_type=offer`),
       fetch(`${PUBLIC_BACKEND_URL}/statistics/orders/count?auction_type=request`),
-      fetch(`${PUBLIC_BACKEND_URL}/statistics/orders?group_by=updated_at`),
-      fetch(`${PUBLIC_BACKEND_URL}/statistics/orders?group_by=updated_at, location`),
+      fetch(`${PUBLIC_BACKEND_URL}/statistics/orders?group_by=hour`),
+      fetch(`${PUBLIC_BACKEND_URL}/statistics/orders?group_by=hour, location`),
     ]);
 
     let [
