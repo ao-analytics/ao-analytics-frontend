@@ -5,6 +5,7 @@
 	import { onMount } from "svelte";
 
 	export let data: MarketOrderCountByUpdatedAt[];
+	export let time_interval: "hour" | "day" | "week" | "month" | null;
 	let canvas: HTMLCanvasElement;
 
 	onMount(async () => {
@@ -31,7 +32,7 @@
 					x: {
 						type: "time",
 						time: {
-							unit: "hour",
+							unit: time_interval || "hour",
 						},
 						title: {
 							display: true,
