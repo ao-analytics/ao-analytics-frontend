@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from "$app/stores";
-	import { PUBLIC_BACKEND_URL as BACKEND_URL } from "$env/static/public";
+	import { env } from "$env/dynamic/public";
 	import type {
 		ItemStatsByDay,
 	} from "$lib/types";
@@ -13,7 +13,7 @@
 
 	onMount(async () => {
 		let response = await fetch(
-			`${BACKEND_URL}/statistics/items/${$page.params.slug}?group_by=hour`,
+			`${env.PUBLIC_BACKEND_URL}/statistics/items/${$page.params.slug}?group_by=hour`,
 		);
 		data = await response.json();
 

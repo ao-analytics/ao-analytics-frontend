@@ -1,15 +1,15 @@
-import { PUBLIC_BACKEND_URL, PUBLIC_INTERNAL_URL } from "$env/static/public";
+import { env } from "$env/dynamic/public";
 import type { MarketOrderCount, MarketOrderCountByAuctionType, MarketOrderCountByUpdatedAt, MarketOrderCountByUpdatedAtAndLocation } from "$lib/types";
 import type { PageLoad } from "./$types";
 
 export const load: PageLoad = async ({ fetch }) => {
   try {
     let requests = await Promise.all([
-      fetch(`${PUBLIC_BACKEND_URL}/statistics/orders/count`),
-      fetch(`${PUBLIC_BACKEND_URL}/statistics/orders/count?auction_type=offer`),
-      fetch(`${PUBLIC_BACKEND_URL}/statistics/orders/count?auction_type=request`),
-      fetch(`${PUBLIC_BACKEND_URL}/statistics/orders?group_by=hour`),
-      fetch(`${PUBLIC_BACKEND_URL}/statistics/orders?group_by=hour, location`),
+      fetch(`${env.PUBLIC_BACKEND_URL}/statistics/orders/count`),
+      fetch(`${env.PUBLIC_BACKEND_URL}/statistics/orders/count?auction_type=offer`),
+      fetch(`${env.PUBLIC_BACKEND_URL}/statistics/orders/count?auction_type=request`),
+      fetch(`${env.PUBLIC_BACKEND_URL}/statistics/orders?group_by=hour`),
+      fetch(`${env.PUBLIC_BACKEND_URL}/statistics/orders?group_by=hour, location`),
     ]);
 
     let [

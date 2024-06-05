@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from "./$types";
-	import { PUBLIC_BACKEND_URL as BACKEND_URL } from "$env/static/public";
+	import { env } from "$env/dynamic/public";
 	import { narrow_relative_time_formatter } from "$lib/utils/formatters";
 	import { standard_number_formatter } from "$lib/utils/formatters";
 	import type { MarketOrder } from "$lib/types";
@@ -54,7 +54,7 @@
 	});
 
 	const get_prices = async () => {
-		let requestURL = new URL(`${BACKEND_URL}/orders`);
+		let requestURL = new URL(`${env.PUBLIC_BACKEND_URL}/orders`);
 		requestURL.searchParams.set("auction_type", "offer");
 		requestURL.searchParams.set("limit", page_size.toString());
 		requestURL.searchParams.set(
