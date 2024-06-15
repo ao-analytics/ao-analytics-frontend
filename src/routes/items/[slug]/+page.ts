@@ -1,24 +1,27 @@
 import { env } from "$env/dynamic/public";
-import type { ItemStatsByDay } from "$lib/types";
+import type { ItemMarketHistory } from "$lib/types";
 import type { PageLoad } from "./$types";
 
-export const load: PageLoad = async ({ fetch, params }) => {
-    const res = await fetch(
-        `${env.PUBLIC_BACKEND_URL}/statistics/items/${params.slug}?group_by=hour`,
-    ).catch(console.log);
+export const load: PageLoad = async ({ fetch, params, url }) => {
+  const res = await fetch(
+    `${env.PUBLIC_BACKEND_URL}/items/${params.slug}/history${url.search}`,
+  ).catch(console.log);
 
-    if (!res) return {
-        stats: []
-    }
-
-    const json = await res.json().catch(console.log) as ItemStatsByDay[] | void
-
-    if (!json) return {
-        stats: []
-    }
-
+  if (!res)
     return {
-        stats: json
-    }
-}
+      history: [],
+    };
 
+  const json = (await res.json().catch(console.log)) as
+    | ItemMarketHistory[]
+    | void;
+
+  if (!json)
+    return {
+      history: [],
+    };
+
+  return {
+    history: json,
+  };
+};
