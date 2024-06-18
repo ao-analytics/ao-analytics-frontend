@@ -23,7 +23,7 @@
 <div class="flex justify-center">
     <div class="w-11/12 space-y-2">
         <div
-            class="w-full border shadow border-neutral stats stats-vertical lg:stats-horizontal"
+            class="w-full stats bg-transparent stats-vertical lg:stats-horizontal"
         >
             {#if market_order_count}
                 <div class="stat">
@@ -146,7 +146,7 @@
             {/if}
         </div>
 
-        <div class="w-full border shadow border-neutral stats stats-vertical">
+        <div class="w-full stats stats-vertical bg-transparent">
             {#if market_order_count_by_updated_at}
                 <MarketOrderCountByUpdatedAt
                     data={market_order_count_by_updated_at}
