@@ -6,6 +6,14 @@ export default {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["dark"]
-  }
+    themes: [
+      {
+        dark: {
+          ...require("daisyui/src/theming/themes")["dark"],
+          primary: "#7480ff",
+          secondary: "#d6d6d6d",
+        },
+      },
+    ],
+  },
 };

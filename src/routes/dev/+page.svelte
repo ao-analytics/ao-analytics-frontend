@@ -1,5 +1,4 @@
 <script lang="ts">
-    import MarketOrderCountByUpdatedAtAndLocation from "$lib/components/MarketOrderCountByUpdatedAtAndLocation.svelte";
     import MarketOrderCountByUpdatedAt from "$lib/components/MarketOrderCountByUpdatedAt.svelte";
     import type { PageData } from "./$types";
     import {
@@ -14,7 +13,6 @@
         market_order_count,
         market_order_count_offer,
         market_order_count_by_updated_at,
-        market_order_count_by_updated_at_and_location,
         market_order_count_request,
         market_history_count,
     } = data;
@@ -39,13 +37,13 @@
                             /></svg
                         >
                     </div>
-                    <div class="stat-title">Market Orders</div>
+                    <div class="stat-title text-secondary">Market Orders</div>
                     <div class="stat-value text-primary">
                         {compact_number_formatter.format(
                             market_order_count?.count ?? 0,
                         )}
                     </div>
-                    <div class="stat-desc">
+                    <div class="stat-desc text-secondary">
                         {standard_number_formatter.format(
                             market_order_count?.count ?? 0,
                         )}
@@ -69,13 +67,13 @@
                             /></svg
                         >
                     </div>
-                    <div class="stat-title">Sell Orders</div>
+                    <div class="stat-title text-secondary">Sell Orders</div>
                     <div class="stat-value text-primary">
                         {compact_number_formatter.format(
                             market_order_count_offer?.count ?? 0,
                         )}
                     </div>
-                    <div class="stat-desc">
+                    <div class="stat-desc text-secondary">
                         {standard_number_formatter.format(
                             market_order_count_offer?.count ?? 0,
                         )}
@@ -99,13 +97,13 @@
                             /></svg
                         >
                     </div>
-                    <div class="stat-title">Buy Orders</div>
+                    <div class="stat-title text-secondary">Buy Orders</div>
                     <div class="stat-value text-primary">
                         {compact_number_formatter.format(
                             market_order_count_request?.count ?? 0,
                         )}
                     </div>
-                    <div class="stat-desc">
+                    <div class="stat-desc text-secondary">
                         {standard_number_formatter.format(
                             market_order_count_request?.count ?? 0,
                         )}
@@ -129,13 +127,15 @@
                             /></svg
                         >
                     </div>
-                    <div class="stat-title">Market Histories</div>
+                    <div class="stat-title text-secondary">
+                        Market Histories
+                    </div>
                     <div class="stat-value text-primary">
                         {compact_number_formatter.format(
                             market_history_count?.count ?? 0,
                         )}
                     </div>
-                    <div class="stat-desc">
+                    <div class="stat-desc text-secondary">
                         {standard_number_formatter.format(
                             market_history_count?.count ?? 0,
                         )}
@@ -150,13 +150,6 @@
             {#if market_order_count_by_updated_at}
                 <MarketOrderCountByUpdatedAt
                     data={market_order_count_by_updated_at}
-                />
-            {/if}
-
-            {#if market_order_count_by_updated_at_and_location}
-                <MarketOrderCountByUpdatedAtAndLocation
-                    minAmount={10000}
-                    data={market_order_count_by_updated_at_and_location}
                 />
             {/if}
         </div>

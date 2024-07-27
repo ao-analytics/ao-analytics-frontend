@@ -15,6 +15,8 @@
                 datasets: [
                     {
                         data: data.map((d) => d.count),
+                        borderColor: "#7480ff",
+                        backgroundColor: "#7480ff",
                     },
                 ],
             },
@@ -34,10 +36,14 @@
                             unit: "day",
                         },
                         title: {
-                            display: true,
+                            display: false,
                         },
                         grid: {
                             display: false,
+                        },
+                        ticks: {
+                            source: "auto",
+                            color: "#d6d6d6",
                         },
                     },
                     y: {
@@ -47,17 +53,21 @@
                         grid: {
                             display: false,
                         },
+                        ticks: {
+                            source: "auto",
+                            color: "#d6d6d6",
+                        },
                     },
                 },
-                borderColor: "#7480ff",
-                backgroundColor: "#7480ff",
+                borderColor: "#ebebeb",
+                backgroundColor: "#ebebeb",
             },
         });
     });
 </script>
 
 <div class="shadow stat">
-    <div class="stat-title">Market Orders By Last Update</div>
+    <div class="stat-title text-secondary">Market Orders By Last Update</div>
     <div class="stat-value">
         <canvas bind:this={canvas}></canvas>
     </div>

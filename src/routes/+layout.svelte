@@ -2,7 +2,9 @@
     import "../app.pcss";
 </script>
 
-<nav class="mb-4 navbar backdrop-blur-lg sticky top-0 shadow shadow-xl">
+<nav
+    class="mb-4 navbar backdrop-filter backdrop-blur-lg sticky top-0 shadow-xl z-[1]"
+>
     <div class="navbar-start">
         <a class="btn btn-ghost" href="/">AO Analytics</a>
         <a class="btn btn-ghost" href="/market">Market</a>
@@ -32,14 +34,3 @@
 </nav>
 
 <slot />
-
-<style lang="postcss">
-    :global(body) {
-        background: url("background.jpg");
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        background-size: cover;
-        background-attachment: fixed;
-        min-height: 100vh;
-    }
-</style>

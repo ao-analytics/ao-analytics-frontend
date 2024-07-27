@@ -122,6 +122,6 @@ export interface ItemMarketHistoryCountByTimestampAndLocation {
   count: number;
 }
 
-interface MarketHistoryCount {
+export interface MarketHistoryCount {
   count: number;
 }
