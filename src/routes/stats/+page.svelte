@@ -1,5 +1,6 @@
 <script lang="ts">
   import NumericStat from "$lib/components/NumericStat.svelte";
+  import TimeSeriesLineChart from "$lib/components/TimeSeriesLineChart.svelte";
   import type { PageData } from "./$types";
 
   export let data: PageData;
@@ -7,8 +8,9 @@
   const {
     market_history_count,
     market_order_count,
-    market_order_count_offer,
-    market_order_count_request,
+    market_order_offer_count,
+    market_order_request_count,
+    market_order_count_by_updated_at,
   } = data;
 </script>
 
@@ -16,8 +18,8 @@
   <title>Stats</title>
 </svelte:head>
 
-<div class="flex justify-center w-screen">
-  <div class="stats w-full lg:w-min stats-vertical md:stats-horizontal">
+<div class="flex flex-col justify-center w-screen md:px-4 space-y-4">
+  <div class="stats w-full stats-vertical md:stats-horizontal">
     <NumericStat data={market_order_count} title="Market Orders">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +33,7 @@
         />
       </svg>
     </NumericStat>
-    <NumericStat data={market_order_count_offer} title="Sell Orders">
+    <NumericStat data={market_order_offer_count} title="Sell Orders">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="40"
@@ -44,7 +46,7 @@
         />
       </svg>
     </NumericStat>
-    <NumericStat data={market_order_count_request} title="Buy Orders">
+    <NumericStat data={market_order_request_count} title="Buy Orders">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="40"
@@ -70,5 +72,9 @@
         />
       </svg>
     </NumericStat>
+  </div>
+
+  <div class="w-full h-96">
+    <TimeSeriesLineChart data={market_order_count_by_updated_at} />
   </div>
 </div>
