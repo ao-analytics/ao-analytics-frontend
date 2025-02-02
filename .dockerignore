@@ -1,4 +1,10 @@
-.svelte-kit
-node_modules
-build
-.env
+*
+!src
+!static
+!bun.lock
+!package.json
+!postcss.config.js
+!svelte.config.js
+!tailwind.config.ts
+!tsconfig.json
+!vite.config.ts

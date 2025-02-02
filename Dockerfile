@@ -1,13 +1,11 @@
-FROM node:20-alpine
+FROM oven/bun:canary-alpine AS build
 WORKDIR /ao-analytics-frontend
 
-EXPOSE 80
-EXPOSE 443
-
 COPY package.json .
-COPY package-lock.json .
-RUN npm ci
+COPY bun.lock .
+RUN bun install --frozen-lockfile
 COPY . .
-RUN npm run build
+RUN bun run build
 
-CMD ["node", "build" ]
+FROM nginx:latest
+COPY --from=build /ao-analytics-frontend/build /usr/share/nginx/html
