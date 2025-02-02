@@ -8,4 +8,6 @@ COPY . .
 RUN bun run build
 
 FROM nginx:latest
+
 COPY --from=build /ao-analytics-frontend/build /usr/share/nginx/html
+COPY docker/nginx.conf /etc/nginx/nginx.conf
