@@ -3,8 +3,9 @@
   import { Chart, type TimeUnit } from "chart.js/auto";
   import "chartjs-adapter-date-fns";
   import { css } from "$lib/utils";
+  import type { MarketOrderCountByUpdatedAt } from "$lib/types";
 
-  type T = { date: Date; count: number };
+  type T = MarketOrderCountByUpdatedAt;
 
   const gridColor = `oklch(${css("--bc")}/0.1)`;
   const labelColor = `oklch(${css("--bc")}/0.6)`;
