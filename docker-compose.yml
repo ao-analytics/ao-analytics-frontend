@@ -5,9 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - HOST=0.0.0.0
-      - PORT=80
       - PUBLIC_BACKEND_URL=http://localhost:8080
+      - PUBLIC_RENDER_URL=https://render.albiononline.com
     ports:
       - 8000:80
     restart: unless-stopped

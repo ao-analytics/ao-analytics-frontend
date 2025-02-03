@@ -22,10 +22,12 @@ export const load: PageLoad = async ({ fetch }) => {
     ]);
 
     return {
-      market_order_count: await market_order_count.text(),
-      market_order_offer_count: await market_order_offer_count.text(),
-      market_order_request_count: await market_order_request_count.text(),
-      market_history_count: await market_history_count.text(),
+      market_order_count: Number(await market_order_count.text()),
+      market_order_offer_count: Number(await market_order_offer_count.text()),
+      market_order_request_count: Number(
+        await market_order_request_count.text(),
+      ),
+      market_history_count: Number(await market_history_count.text()),
       market_order_count_by_updated_at:
         await market_order_count_by_updated_at.json(),
     };

@@ -4,7 +4,7 @@
     standard_number_formatter,
   } from "$lib/utils/formatters";
 
-  export let data: number;
+  export let data: number | undefined;
   export let title: string;
 </script>
 
@@ -14,9 +14,17 @@
   </div>
   <div class="stat-title">{title}</div>
   <div class="stat-value text-primary">
-    {compact_number_formatter.format(data)}
+    {#if data}
+      {compact_number_formatter.format(data)}
+    {:else}
+      N/A
+    {/if}
   </div>
   <div class="stat-desc">
-    {standard_number_formatter.format(data)}
+    {#if data}
+      {standard_number_formatter.format(data)}
+    {:else}
+      N/A
+    {/if}
   </div>
 </div>
