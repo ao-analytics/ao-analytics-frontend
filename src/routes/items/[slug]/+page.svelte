@@ -3,11 +3,11 @@
 
   export let data: PageData;
 
-  const { item_data } = data;
+  const { slug, item_data } = data;
 </script>
 
 <svelte:head>
-  <title>{item_data["@uniquename"]}</title>
+  <title>{slug}</title>
 </svelte:head>
 
 <pre>{JSON.stringify(item_data, null, 4)}</pre>

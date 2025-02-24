@@ -10,7 +10,8 @@ export const load: PageLoad = async ({ params }) => {
     ]);
 
     return {
-      item_data: (await item_data.json()).data,
+      slug: params.slug,
+      item_data: await item_data.json(),
     };
   } catch (e) {}
 };
