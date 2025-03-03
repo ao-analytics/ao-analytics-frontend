@@ -7,9 +7,9 @@
 
   type T = MarketOrderCountByUpdatedAt;
 
-  const gridColor = `oklch(${css("--bc")}/0.1)`;
-  const labelColor = `oklch(${css("--bc")}/0.6)`;
-  const lineColor = `oklch(${css("--p")})`;
+  const gridColor = `color-mix(in oklch,${css("--color-base-content")} 1%, transparent)`;
+  const labelColor = `color-mix(in oklch,${css("--color-base-content")} 60%, transparent)`;
+  const lineColor = `${css("--color-base-content")}`;
 
   export let data: T[];
   export let unit: TimeUnit = "week";
@@ -27,6 +27,7 @@
           {
             data: data.map(dataSelector),
             borderColor: lineColor,
+            backgroundColor: lineColor,
             borderWidth: 4,
           },
         ],

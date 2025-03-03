@@ -4,7 +4,7 @@
 </script>
 
 <nav
-  class="mb-4 navbar backdrop-filter backdrop-blur-lg sticky top-0 shadow-xl z-[1]"
+  class="mb-4 navbar backdrop-filter backdrop-blur-lg sticky top-0 shadow-xl z-1"
 >
   <div class="navbar-start">
     <a class="btn btn-ghost" href="/">AO Analytics</a>

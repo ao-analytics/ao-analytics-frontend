@@ -9,11 +9,11 @@
 </script>
 
 <div class="stat w-full">
-  <div class="stat-figure text-primary">
+  <div class="stat-figure">
     <slot></slot>
   </div>
   <div class="stat-title">{title}</div>
-  <div class="stat-value text-primary">
+  <div class="stat-value">
     {#if data}
       {compact_number_formatter.format(data)}
     {:else}
